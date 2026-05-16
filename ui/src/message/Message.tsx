@@ -40,6 +40,8 @@ const useStyles = makeStyles()((theme: Theme) => ({
     messageContentWrapper: {
         minWidth: 200,
         width: '100%',
+        maxWidth: '100%',
+        boxSizing: 'border-box',
     },
     image: {
         width: 50,
@@ -63,6 +65,10 @@ const useStyles = makeStyles()((theme: Theme) => ({
     },
     plainContent: {
         whiteSpace: 'pre-wrap',
+        [theme.breakpoints.down('sm')]: {
+            overflowWrap: 'anywhere',
+            wordBreak: 'break-word',
+        },
     },
     content: {
         maxHeight: PREVIEW_LENGTH,
@@ -84,9 +90,24 @@ const useStyles = makeStyles()((theme: Theme) => ({
             backgroundColor:
                 theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
             padding: theme.spacing(1),
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            [theme.breakpoints.down('sm')]: {
+                whiteSpace: 'pre-wrap',
+                overflowWrap: 'anywhere',
+                wordBreak: 'break-word',
+            },
+        },
+        '& code': {
+            [theme.breakpoints.down('sm')]: {
+                whiteSpace: 'pre-wrap',
+                overflowWrap: 'anywhere',
+                wordBreak: 'break-word',
+            },
         },
         '& img': {
             maxWidth: '100%',
+            height: 'auto',
         },
     },
 }));
